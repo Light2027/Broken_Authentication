@@ -1,0 +1,19 @@
+<p-toast position="top-center"></p-toast>
+<div [formGroup]="formGroup" class="form p-fluid p-grid p-formgrid login">
+  <div class="p-field p-col-12 p-md-4">
+    <label>Username</label>
+    <input [required]="true" type="text" pInputText [(ngModel)]="loginForm.username" pTooltip="Enter your username" tooltipPosition="bottom" tooltipEvent="focus" name="username" formControlName="username" placeholder="Username">  
+  </div>
+  <div class="p-field p-col-12 p-md-4">
+    <label>Password</label>
+    <input [required]="true" type="password" pPassword [feedback]="false" [(ngModel)]="loginForm.password" pTooltip="Enter your password" tooltipPosition="bottom" tooltipEvent="focus" name="password" formControlName="password" placeholder="Password">  
+  </div>
+  
+  <div class="text-center">
+    <button pButton label="Login" class="w-50 p-button-success" icon="pi pi-sign-in" [disabled]="!(formGroup.valid && canClickLoginButton)" (click)="login()"></button>
+  </div>
+
+  <div class="text-center m-5">
+    <p>Not a registered yet? <a [routerLink]="['/register']">Sign Up now for free!</a></p>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<p-toast position="top-center"></p-toast>
+<div *ngIf="user else pending" class="text-center">
+    <img [src]="pfp" class="img-circle img-thumbnail pfp m-5" alt="Your profile picture">
+    <h1>Welcome {{user.nickname}}</h1>
+    <p-fileUpload chooseLabel="Select profile picture" cancelLabel="Cancel" name="pfp"  url="{{uploadURI}}" accept="image/*" [maxFileSize]="10000000" (onUpload)="onUploaded($event)"></p-fileUpload>
+    <app-edit-profile (updated)="onProfileUpdated($event)"></app-edit-profile>
+</div>
+
+<ng-template #pending>
+    <div class="loading text-center">
+        <i class="pi pi-spin pi-spinner" style="font-size: 6rem"></i>
+        <h1>Pending...</h1>
+    </div>
+</ng-template>

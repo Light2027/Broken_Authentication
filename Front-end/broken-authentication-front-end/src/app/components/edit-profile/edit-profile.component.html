@@ -1,0 +1,52 @@
+<p-toast position="bottom-left"></p-toast>
+<div [formGroup]="nicknameFormGroup" class="form p-fluid p-grid p-formgrid m-5">
+    <div class="p-field p-col-12 p-md-4 text-center">
+      <h2>Update Nickname</h2> 
+    </div>
+  
+    <!--Nickname-->
+    <div class="p-field p-col-12 p-md-4">
+        <label>New Nickname</label>
+        <input type="text" pInputText [(ngModel)]="updateNicknameForm.newNickname" name="newNickname" formControlName="newNickname" placeholder="New Nickname">  
+    </div>
+    
+    <!--Password validation-->
+    <div class="p-field p-col-12 p-md-4">
+      <label>Password</label>
+      <input type="password" pInputText [(ngModel)]="updateNicknameForm.password" name="password" formControlName="password" placeholder="Password">  
+      <p class="invalid" *ngIf="nicknameFormGroup.controls.newNickname.errors?.invalidNickname">Nicknames must be atleast 4 characters long but no longer than 20 and can only contain upper and lower case letters as well as numbers.</p>
+    </div>
+    
+    <div class="text-center">
+      <button pButton label="Update Nickname" class="w-50 p-button-success" [disabled]="!(nicknameFormGroup.valid && canClickUpdateNicknameButton)" (click)="updateNickname()"></button>
+    </div>
+</div>
+
+<div [formGroup]="passwordFormGroup" class="form p-fluid p-grid p-formgrid m-5">
+    <div class="p-field p-col-12 p-md-4 text-center">
+      <h2>Update Password</h2> 
+    </div>
+
+        <!--Password validation-->
+    <div class="p-field p-col-12 p-md-4">
+      <label>Current Password</label>
+      <input type="password" pInputText [(ngModel)]="updatePasswordForm.oldPassword" name="oldPassword" formControlName="oldPassword" placeholder="Password">  
+    </div>
+
+    <!--New Password-->
+    <div class="p-field p-col-12 p-md-4">
+        <label>Password</label>
+        <input type="password" pInputText [(ngModel)]="updatePasswordForm.newPassword" name="newPassword" formControlName="newPassword" placeholder="Password">  
+        <p class="invalid" *ngIf="passwordFormGroup.controls.newPassword.errors?.isWeak">Password must contain an upper, lower case letter, a number, a special character and must be atleast 8 characters long, and do not forget to sacrifice your eldest child!</p>
+    </div>
+    <!--New Password Confirmation-->
+    <div class="p-field p-col-12 p-md-4">   
+      <label>Confirmation Password</label>
+      <input type="password" pInputText [(ngModel)]="confirmationNewPassword" name="confirmationNewPassword" formControlName="confirmationNewPassword" placeholder="Confirmation Password"> 
+      <p class="invalid" *ngIf="!passwordsMatch()">This must match password!</p>
+    </div>
+
+    <div class="text-center">
+        <button pButton label="Update Password" class="w-50 p-button-success" [disabled]="!(passwordFormGroup.valid && passwordsMatch() && canClickUpdatePasswordButton)" (click)="updatePassword()"></button>
+    </div>
+</div>

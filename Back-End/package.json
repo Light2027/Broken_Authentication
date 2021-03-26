@@ -1,0 +1,41 @@
+{
+  "name": "broken-authentication-back-end",
+  "version": "0.5.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "nodemon": "tsc && nodemon ./dist/Back-End/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Light2027/Broken_Authentication.git"
+  },
+  "author": "Istvan Galfi, Soma Molnar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Light2027/Broken_Authentication/issues"
+  },
+  "homepage": "https://github.com/Light2027/Broken_Authentication#readme",
+  "dependencies": {
+    "@types/body-parser": "^1.19.0",
+    "@types/cors": "^2.8.9",
+    "@types/express": "^4.17.9",
+    "@types/express-fileupload": "^1.1.6",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/node": "^14.14.16",
+    "@types/pino": "^6.3.4",
+    "@types/pino-http": "^5.0.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "hasha": "^5.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "pino": "^6.9.0",
+    "pino-http": "^5.3.0",
+    "pino-pretty": "^4.3.0",
+    "rethinkdb-ts": "^2.4.5",
+    "uuid": "^8.3.2"
+  }
+}
