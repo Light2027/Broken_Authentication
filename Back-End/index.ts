@@ -29,11 +29,14 @@ app.use(pinoHttp({
     logger: logger,
 }))
 
-const userDBAccess = new RethinkDBAccessService<UserData>(appSettings.DBConnection.Host, appSettings.DBConnection.Port, "Users-Database", "Users");
-const refreshTokenDBAccess = new RethinkDBAccessService<RefreshToken>(appSettings.DBConnection.Host, appSettings.DBConnection.Port, "Users-Database", "RefreshTokens");
+const userDBAccess = new RethinkDBAccessService<UserData>(appSettings.DBConnection.Host, appSettings.DBConnection.Port, "UsersDatabase", "Users");
+const refreshTokenDBAccess = new RethinkDBAccessService<RefreshToken>(appSettings.DBConnection.Host, appSettings.DBConnection.Port, "UsersDatabase", "RefreshTokens");
 
-userDBAccess.tryInitialize().then().catch(error => logger.error(error));
-refreshTokenDBAccess.tryInitialize().then().catch(error => logger.error(error));
+userDBAccess.tryInitialize().then(
+    () => refreshTokenDBAccess.tryInitialize().then(
+
+    ).catch(error => logger.error(error))
+).catch(error => logger.error(error));
 
 const jwtProvider = new JWTProvider(appSettings.AccessTokenSecret, appSettings.RefreshTokenSecret, 1, 1, refreshTokenDBAccess);
 const jwtAuthorizationService = new JWTAuthorizationMiddleware(appSettings.AccessTokenSecret, userDBAccess);
