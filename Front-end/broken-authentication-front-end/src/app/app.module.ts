@@ -22,6 +22,7 @@ import {ToastModule} from 'primeng/toast';
 import {FileUploadModule} from 'primeng/fileupload';
 import {PasswordModule} from 'primeng/password';
 import {TooltipModule} from 'primeng/tooltip';
+import {SliderModule} from 'primeng/slider';
 
 import {ChartModule} from 'primeng/chart';
 
@@ -56,7 +57,7 @@ import { SensorsTableComponent } from './components/sensors-table/sensors-table.
     SensorTableComponent,
     SensorControllerComponent,
     HistoryComponent,
-    SensorsTableComponent,
+    SensorsTableComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +82,7 @@ import { SensorsTableComponent } from './components/sensors-table/sensors-table.
     FileUploadModule,
     PasswordModule,
     TooltipModule,
+    SliderModule
   ],
   providers: [{provide: BackEndConnectionSettings, useValue:{url: appSettings.BackEndConnectionSettings.url, port: appSettings.BackEndConnectionSettings.port}},
               {
