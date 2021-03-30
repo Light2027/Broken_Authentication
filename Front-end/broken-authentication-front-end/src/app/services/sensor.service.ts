@@ -7,21 +7,17 @@ import { Sensor } from '../../../../../Shared/models/models/sensor.model';
 export class SensorService {
   private data:Array<Sensor>
   constructor() { 
+    
     this.data = [
-      new Sensor(1,2,3),
-      new Sensor(1,2,3),
-      new Sensor(1,2,3),
-      new Sensor(1,2,3),
-      new Sensor(1,2,3),
-      new Sensor(1,2,3),
-      new Sensor(1,2,3),
-      new Sensor(1,2,3),
-      new Sensor(1,2,3),
+      new Sensor("Temperature",21.1),
+      new Sensor("Humidity", 78),
+      new Sensor("Luminosity", 65)
       // Add more 
     ];
   }
 
   public getSensorData():Array<Sensor>{
+    console.log("Got into the sensor service ctr")
     return this.data;
   }
 }

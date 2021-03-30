@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SliderModule} from 'primeng/slider';
 
 @Component({
   selector: 'app-sensor-controller',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SensorControllerComponent implements OnInit {
 
+  temperature : number = 20;
   constructor() { }
 
   ngOnInit(): void {

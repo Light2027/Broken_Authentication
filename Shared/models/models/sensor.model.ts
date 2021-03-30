@@ -1,5 +1,4 @@
 export class Sensor{
-    constructor(public temperature:number, 
-                public humidity:number, 
-                public luminosity:number){}
+    constructor(public name:string, 
+                public value:number){}
 }
