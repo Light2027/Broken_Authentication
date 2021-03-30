@@ -40,6 +40,7 @@ import { AdminPageComponent } from './views/admin-page/admin-page.component';
 import { SensorTableComponent } from './components/sensor-table/sensor-table.component';
 import { SensorControllerComponent } from './components/sensor-controller/sensor-controller.component';
 import { HistoryComponent } from './components/history/history.component';
+import { SensorsTableComponent } from './components/sensors-table/sensors-table.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { HistoryComponent } from './components/history/history.component';
     SensorTableComponent,
     SensorControllerComponent,
     HistoryComponent,
+    SensorsTableComponent,
   ],
   imports: [
     BrowserModule,
