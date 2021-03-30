@@ -14,6 +14,8 @@ export class SensorService {
       new Sensor("Luminosity", 65)
       // Add more 
     ];
+
+  
   }
 
   public getSensorData():Array<Sensor>{
