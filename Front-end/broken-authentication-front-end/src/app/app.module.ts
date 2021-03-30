@@ -37,9 +37,9 @@ import { AuthInterceptor } from "./interceptors/auth.interceptor";
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { HasherInterceptor } from "./interceptors/hasher.interceptor";
 import { AdminPageComponent } from './views/admin-page/admin-page.component';
-import { LogComponent } from './components/log/log.component';
 import { SensorTableComponent } from './components/sensor-table/sensor-table.component';
 import { SensorControllerComponent } from './components/sensor-controller/sensor-controller.component';
+import { HistoryComponent } from './components/history/history.component';
 
 @NgModule({
   declarations: [
@@ -52,9 +52,9 @@ import { SensorControllerComponent } from './components/sensor-controller/sensor
     NotFoundPageComponent,
     EditProfileComponent,
     AdminPageComponent,
-    LogComponent,
     SensorTableComponent,
     SensorControllerComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,
