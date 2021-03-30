@@ -23,7 +23,7 @@ export class AuthService{
   }
 
   public async getAccessToken():Promise<Token|null>{
-    let tokenString:string|null = window.sessionStorage.getItem(this.accessTokenLocalKey);
+    let tokenString:string|null = window.localStorage.getItem(this.accessTokenLocalKey);
     if(tokenString === null) return null;
     let token:Token = JSON.parse(tokenString);
 
@@ -43,7 +43,7 @@ export class AuthService{
 
   /**Returns tokens value */
   private async getNewAccessToken():Promise<Token|null>{
-    let refreshTokenString = window.sessionStorage.getItem(this.refreshTokenLocalKey);
+    let refreshTokenString = window.localStorage.getItem(this.refreshTokenLocalKey);
     if(refreshTokenString === null) return null;
 
     let refreshToken:Token = JSON.parse(refreshTokenString);
@@ -65,11 +65,11 @@ export class AuthService{
   }
 
   public setAccessToken(accessToken:Token){
-    window.sessionStorage.setItem(this.accessTokenLocalKey, JSON.stringify(accessToken));
+    window.localStorage.setItem(this.accessTokenLocalKey, JSON.stringify(accessToken));
   }
 
   public setRefreshToken(refreshToken:Token){
-    window.sessionStorage.setItem(this.refreshTokenLocalKey, JSON.stringify(refreshToken));
+    window.localStorage.setItem(this.refreshTokenLocalKey, JSON.stringify(refreshToken));
   }
   
   public removeTokens(){
@@ -78,10 +78,10 @@ export class AuthService{
   }
 
   private removeAccessToken(){
-    window.sessionStorage.removeItem(this.accessTokenLocalKey);
+    window.localStorage.removeItem(this.accessTokenLocalKey);
   }
 
   private removeRefreshToken(){
-    window.sessionStorage.removeItem(this.refreshTokenLocalKey);
+    window.localStorage.removeItem(this.refreshTokenLocalKey);
   }
 }
