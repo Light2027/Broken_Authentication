@@ -6,13 +6,16 @@ import { LoginPageComponent } from './views/login-page/login-page.component';
 import { NotFoundPageComponent } from './views/not-found-page/not-found-page.component';
 import { ProfilePageComponent } from './views/profile-page/profile-page.component';
 import { RegisterPageComponent } from './views/register-page/register-page.component';
+import { AdminPageComponent } from './views/admin-page/admin-page.component';
 import { AuthNegatorGuard } from './guards/auth-negator.guard';
 import { AuthGuard } from './guards/auth.guard';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginPageComponent, canActivate: [AuthNegatorGuard]},
   {path: 'register', component: RegisterPageComponent, canActivate: [AuthNegatorGuard]},
   {path: '', component: DashboardPageComponent, canActivate: [AuthGuard]},
+  {path: 'admin', component: AdminPageComponent, canActivate: [AuthGuard, AdminGuard]},
   {path: 'profile', component: ProfilePageComponent, canActivate: [AuthGuard]},
   {path: 'about', component:AboutPageComponent, canActivate: [AuthGuard]},
   {path: '**', component:NotFoundPageComponent},

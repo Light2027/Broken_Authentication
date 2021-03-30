@@ -11,11 +11,11 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent implements OnInit {
   public menuItems:MenuItem[];
-  public isUserLoggedIn:boolean
+  public isUserLoggedIn:boolean;
 
   constructor(public authService:AuthService, public userService:UserService, private router: Router){
     this.isUserLoggedIn = false;
-    router.events.subscribe(async res => {
+    router.events.subscribe(async _ => {
       this.isUserLoggedIn = await this.authService.hasAccessToken();
     });
     this.menuItems = new Array<MenuItem>();

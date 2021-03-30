@@ -1,5 +1,6 @@
 <div class="wrapper">
     <p-menubar *ngIf="isUserLoggedIn" [model]="menuItems">
+        <button *ngIf="this.userService.isAdmin()" pButton label="Admin" [routerLink]="['/admin']" icon="pi pi-user" class="mr-5"></button>
         <button pButton label="Logout" (click)="logout()" icon="pi pi-sign-out"></button>
     </p-menubar>
     <router-outlet></router-outlet>

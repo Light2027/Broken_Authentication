@@ -22,6 +22,10 @@ export class UserService{
     this.apiURI = `${connectionSettings.url}:${connectionSettings.port}/api/user`;
    }
 
+  public isAdmin():boolean{
+    return this.user !== null && this.user.username === "Admin1234"
+  }
+
   public async login(request:LoginRequest):Promise<void>{
     let loginURI = `${this.apiURI}/login`;
     let toPost = clone(request);

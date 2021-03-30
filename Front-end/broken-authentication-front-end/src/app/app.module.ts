@@ -36,6 +36,7 @@ import {BackEndConnectionSettings} from "./models/back-end-connection-settings";
 import { AuthInterceptor } from "./interceptors/auth.interceptor";
 import { EditProfileComponent } from './components/edit-profile/edit-profile.component';
 import { HasherInterceptor } from "./interceptors/hasher.interceptor";
+import { AdminPageComponent } from './views/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { HasherInterceptor } from "./interceptors/hasher.interceptor";
     AboutPageComponent,
     NotFoundPageComponent,
     EditProfileComponent,
+    AdminPageComponent,
   ],
   imports: [
     BrowserModule,
