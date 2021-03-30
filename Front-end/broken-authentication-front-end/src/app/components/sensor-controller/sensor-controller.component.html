@@ -1,6 +1,39 @@
-<h5>Temperature: {{temperature}}</h5>
-<input type="text" pInputText [(ngModel)]="temperature"/>
-<p-slider [(ngModel)]="temperature"></p-slider>
 <!--
-    
+| Temperature | Humidity | Radiation |
+| 2           | 3        | 3         |
+| 3           | 3        | 2         |
+| 1           | 2        | 3         |
+
+Sensor      Value   
+
+Temp        20      SLIDER
+
+Hum         10      SLIDER
+
+Rad         5       SLIDER
 -->
+
+<div class="card m-5" >
+
+    <h5>Sensors</h5>
+    <p-table [value]="sensors">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+                <th pSortableColumn="value">Value <p-sortIcon field="value"></p-sortIcon></th>
+                <th>Slider</th>
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sensor>
+            <tr>
+                <td>{{sensor.name}}</td>
+                <td>{{sensor.value}}</td>
+                <td>
+                    <input type="text" pInputText [(ngModel)]="sensor.value"/>
+                    <p-slider [(ngModel)]="sensor.value"></p-slider>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

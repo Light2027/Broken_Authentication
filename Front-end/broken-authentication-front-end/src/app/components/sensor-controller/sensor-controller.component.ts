@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {SliderModule} from 'primeng/slider';
+import { Sensor } from '../../../../../../Shared/models/models/sensor.model';
+import { SensorService } from "../../services/sensor.service"
+
 
 @Component({
   selector: 'app-sensor-controller',
@@ -8,10 +10,13 @@ import {SliderModule} from 'primeng/slider';
 })
 export class SensorControllerComponent implements OnInit {
 
-  temperature : number = 20;
-  constructor() { }
+  sensors: Array<Sensor> = [];
+  constructor(private sensorService:SensorService) { }
 
   ngOnInit(): void {
+    console.log("Got into the table component ngOnInit");
+    this.sensors = this.sensorService.getSensorData();
+    console.log(this.sensors);
   }
 
 }
