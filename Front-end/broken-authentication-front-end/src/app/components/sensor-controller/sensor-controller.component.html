@@ -31,7 +31,7 @@ Rad         5       SLIDER
                 <td>{{sensor.value}}</td>
                 <td>
                     <input type="text" pInputText [(ngModel)]="sensor.value"/>
-                    <p-slider [(ngModel)]="sensor.value"></p-slider>
+                    <p-slider [(ngModel)]="sensor.value" [step]="0.1"></p-slider>
                 </td>
             </tr>
         </ng-template>
