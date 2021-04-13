@@ -7,15 +7,11 @@ import { Sensor } from '../../../../../Shared/models/models/sensor.model';
 export class SensorService {
   private data:Array<Sensor>
   constructor() { 
-    
     this.data = [
       new Sensor("Temperature (℃)",21.1),
       new Sensor("Humidity (%)", 78),
       new Sensor("Light intensity (%)", 63)
-      // Add more 
     ];
-
-  
   }
 
   public getSensorData():Array<Sensor>{
