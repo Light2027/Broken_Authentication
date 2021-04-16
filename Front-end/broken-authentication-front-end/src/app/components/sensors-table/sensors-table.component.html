@@ -5,11 +5,13 @@
         <ng-template pTemplate="header">
             <tr>
                 <th pSortableColumn="name">Name<p-sortIcon field="name"></p-sortIcon></th>
+                <th pSortableColumn="value">Value<p-sortIcon field="value"></p-sortIcon></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-entry>
             <tr>
                 <td class="text-center">{{entry.name}}</td>
+                <td class="text-center">{{entry.value}}</td>
             </tr>
         </ng-template>
     </p-table>
