@@ -65,11 +65,11 @@ export class AuthService{
   }
 
   public setAccessToken(accessToken:Token){
-    window.localStorage.setItem(this.accessTokenLocalKey, JSON.stringify(accessToken));
+    window.sessionStorage.setItem(this.accessTokenLocalKey, JSON.stringify(accessToken));
   }
 
   public setRefreshToken(refreshToken:Token){
-    window.localStorage.setItem(this.refreshTokenLocalKey, JSON.stringify(refreshToken));
+    window.sessionStorage.setItem(this.refreshTokenLocalKey, JSON.stringify(refreshToken));
   }
   
   public removeTokens(){
@@ -78,10 +78,10 @@ export class AuthService{
   }
 
   private removeAccessToken(){
-    window.localStorage.removeItem(this.accessTokenLocalKey);
+    window.sessionStorage.removeItem(this.accessTokenLocalKey);
   }
 
   private removeRefreshToken(){
-    window.localStorage.removeItem(this.refreshTokenLocalKey);
+    window.sessionStorage.removeItem(this.refreshTokenLocalKey);
   }
 }
