@@ -53,6 +53,29 @@ export class RegisterPageComponent implements OnInit {
   }
 
   public passwordsMatch():boolean{
-    return this.registrationForm.password === this.confirmationPassword;
+    if(this.check(this.registrationForm.username, this.registrationForm.password)){
+      // hier wäre noch sinnvoll vorher das passwort zu überprüfen.
+      // Möglichkeit mit https://api.pwnedpasswords.com/range/{First 5 hash chars}
+      // API KEY von haveibeenpwned.com notwenig
+      return this.registrationForm.password === this.confirmationPassword;
+    }else{
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: `Password contains username.`,
+        life: 2000,
+        closable:false
+      });
+      return false;
+    }
   }
+
+  public check(username : string, pwd : string){
+
+    var match = pwd.match("[a-z]+");
+    if(match != null){
+      return match.filter(a=> a.length > 4 && username.includes(a)).length > 0? true:false;
+    }
+    return false;
+    }
 }
